@@ -1,7 +1,7 @@
 {
   "name": "srt-to-vtt",
   "version": "0.0.0",
-  "description": "WIP - nothing to see here",
+  "description": "Transform stream that converts srt files to vtt files (html5 video subtitles)",
   "main": "index.js",
   "bin": {
     "srt-to-vtt": "./bin.js"
@@ -29,5 +29,10 @@
   "bugs": {
     "url": "https://github.com/mafintosh/srt-to-vtt/issues"
   },
-  "homepage": "https://github.com/mafintosh/srt-to-vtt"
+  "homepage": "https://github.com/mafintosh/srt-to-vtt",
+  "keywords": [
+    "html5",
+    "video",
+    "subtitles"
+  ]
 }
