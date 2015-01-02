@@ -12,9 +12,14 @@ module.exports = function() {
       return cb()
     }
 
-    var line = buf.join('\r\n').replace(/(\d\d:\d\d:\d\d),(\d\d\d)/g, '$1.$2')+'\r\n\r\n'
-    buf = []
+    var line = buf.join('\r\n')
+      .replace(/\{\\([ibu])\}/g, '</$1>')
+      .replace(/\{\\([ibu])1\}/g, '<$1>')
+      .replace(/\{([ibu])\}/g, '<$1>')
+      .replace(/\{\/([ibu])\}/g, '</$1>')
+      .replace(/(\d\d:\d\d:\d\d),(\d\d\d)/g, '$1.$2')+'\r\n\r\n'
 
+    buf = []
     cb(null, line)
   }
 
