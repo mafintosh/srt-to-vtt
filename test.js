@@ -1,5 +1,5 @@
 var tape = require('tape')
-var srt2vtt = require('srt-to-vtt')
+var srt2vtt = require('./')
 var concat = require('concat-stream')
 
 tape('empty', function(t) {
