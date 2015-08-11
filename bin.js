@@ -5,8 +5,8 @@ var minimist = require('minimist')
 var fs = require('fs')
 
 var argv = minimist(process.argv.slice(2), {
-  alias: {out:'o', help:'h'},
-  default: {out:'-'}
+  alias: {out: 'o', help: 'h'},
+  default: {out: '-'}
 })
 
 if (argv.help) {
@@ -14,7 +14,7 @@ if (argv.help) {
   process.exit(1)
 }
 
-process.stdout.on('error', function(err) {
+process.stdout.on('error', function (err) {
   if (err.code !== 'EPIPE') throw err
 })
 
