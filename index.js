@@ -4,7 +4,6 @@ var through = require('through2')
 
 module.exports = function() {
   var buf = []
-  var first = true
 
   var write = function(line, enc, cb) {
     if (line.trim()) {
