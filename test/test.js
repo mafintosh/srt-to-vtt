@@ -1,6 +1,7 @@
 var tape = require('tape')
-var srt2vtt = require('./')
+var srt2vtt = require('../')
 var concat = require('concat-stream')
+var fs = require('fs')
 
 tape('empty', function (t) {
   var convert = srt2vtt()
@@ -27,6 +28,14 @@ tape('two entries', function (t) {
   convert.end()
   convert.pipe(concat(function (data) {
     t.same(data.toString(), 'WEBVTT FILE\r\n\r\n1\r\n00:00:10.500 --> 00:00:13.000\r\nthis is a test\r\n\r\n2\r\n00:00:14.500 --> 00:00:15.000\r\nthis is a test\r\n\r\n')
+    t.end()
+  }))
+})
+
+tape('latin1 encoding', function (t) {
+  var convert = srt2vtt()
+  fs.createReadStream('./test/data/latin1.srt').pipe(convert).pipe(concat(function (data) {
+    t.same(data.toString(), 'WEBVTT FILE\r\n\r\n1\r\n00:01:04.440 --> 00:01:07.318\r\n<i>Todo está bien, hijo.</i>\r\n\r\n2\r\n00:01:08.611 --> 00:01:13.491\r\n<i>Ya sé que quieres\r\nque esto se acabe.</i>\r\n\r\n3\r\n00:01:19.997 --> 00:01:22.124\r\n<i>Estoy aquí contigo.</i>\r\n\r\n')
     t.end()
   }))
 })

@@ -1,0 +1,13 @@
+1
+00:01:04,440 --> 00:01:07,318
+<i>Todo está bien, hijo.</i>
+
+2
+00:01:08,611 --> 00:01:13,491
+<i>Ya sé que quieres
+que esto se acabe.</i>
+
+3
+00:01:19,997 --> 00:01:22,124
+<i>Estoy aquí contigo.</i>
+

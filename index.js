@@ -1,6 +1,7 @@
 var split = require('split2')
 var pumpify = require('pumpify')
 var through = require('through2')
+var utf8 = require('to-utf-8')
 
 module.exports = function () {
   var buf = []
@@ -24,5 +25,5 @@ module.exports = function () {
 
   var parse = through.obj(write)
   parse.push('WEBVTT FILE\r\n\r\n')
-  return pumpify(split(), parse)
+  return pumpify(utf8({newline: false, detectSize: 4095}), split(), parse)
 }
