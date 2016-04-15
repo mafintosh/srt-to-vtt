@@ -1,6 +1,6 @@
 {
   "name": "srt-to-vtt",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Transform stream that converts srt files to vtt files (html5 video subtitles)",
   "main": "index.js",
   "bin": {
