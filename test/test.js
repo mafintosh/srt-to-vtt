@@ -39,3 +39,13 @@ tape('latin1 encoding', function (t) {
     t.end()
   }))
 })
+
+tape('missing file ending CRLF', function (t) {
+  var convert = srt2vtt()
+  convert.write('1\r\n00:00:10,500 --> 00:00:13,000\r\nthis is a test\r\n\r\n2\r\n00:00:14,500 --> 00:00:15,000\r\nthis is a test\r\n')
+  convert.end()
+  convert.pipe(concat(function (data) {
+    t.same(data.toString(), 'WEBVTT FILE\r\n\r\n1\r\n00:00:10.500 --> 00:00:13.000\r\nthis is a test\r\n\r\n2\r\n00:00:14.500 --> 00:00:15.000\r\nthis is a test\r\n\r\n')
+    t.end()
+  }))
+})
