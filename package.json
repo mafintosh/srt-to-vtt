@@ -9,6 +9,9 @@
   "scripts": {
     "test": "standard && tape test/test.js"
   },
+  "browser": {
+    "to-utf-8": "through2"
+  },
   "dependencies": {
     "duplexify": "^3.2.0",
     "minimist": "^1.1.0",
