@@ -12,7 +12,9 @@ module.exports = function () {
       .replace(/\{\\([ibu])1\}/g, '<$1>')
       .replace(/\{([ibu])\}/g, '<$1>')
       .replace(/\{\/([ibu])\}/g, '</$1>')
-      .replace(/(\d\d:\d\d:\d\d),(\d\d\d)/g, '$1.$2') + '\r\n\r\n'
+      .replace(/(\d\d:\d\d:\d\d),(\d\d\d)/g, '$1.$2')
+      .replace(/\r\n\{\\an8\}/g, ' line:5%\r\n') +
+      '\r\n\r\n'
   }
 
   var write = function (line, enc, cb) {
